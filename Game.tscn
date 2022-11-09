@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Arena.tscn" type="PackedScene" id=2]
+
+[node name="Game" type="Node2D"]
+
+[node name="Arena" parent="." instance=ExtResource( 2 )]
+
+[node name="PlayerCar" parent="." instance=ExtResource( 1 )]
+position = Vector2( 483, 365 )
+__meta__ = {
+"_edit_group_": true
+}
