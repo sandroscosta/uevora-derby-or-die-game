@@ -27,6 +27,13 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	
+	if get_slide_count() > 0 :
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			var body = collision.collider
+			if body.is_in_group("enemy"):
+				print("BOOM ", body.name)
 
 func apply_friction():
 	if velocity.length() < 5:
