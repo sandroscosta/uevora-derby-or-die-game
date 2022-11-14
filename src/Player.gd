@@ -17,9 +17,6 @@ var drag = -0.0015
 var braking = -450
 var max_speed_reverse = 250
 
-func _ready():
-	print(get_viewport().size)
-
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()

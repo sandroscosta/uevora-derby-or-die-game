@@ -7,6 +7,7 @@
 extents = Vector2( 24, 56.5 )
 
 [node name="EnemyCar" type="KinematicBody2D" groups=["enemy"]]
+rotation = 1.57079
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
