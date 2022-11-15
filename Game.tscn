@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Arena.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/EnemyPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/EnemyCone.tscn" type="PackedScene" id=3]
 
 [node name="Game" type="Node2D"]
 
@@ -14,5 +14,5 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="EnemyCar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 782, 288 )
+[node name="Cone" parent="." instance=ExtResource( 3 )]
+position = Vector2( 770, 362 )
