@@ -19,6 +19,8 @@ var max_speed_reverse = 250
 
 onready var ui = get_node("/root/Game/UI")
 
+signal dead
+
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -26,6 +28,7 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	check_death()
 	
 	if get_slide_count() > 0 :
 		for i in get_slide_count():
@@ -71,3 +74,6 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 	
+func check_death():
+	if health == 0:
+		emit_signal("dead")

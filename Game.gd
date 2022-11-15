@@ -36,3 +36,7 @@ func _on_EnemySpawnTimer_timeout():
 	
 	enemy.position = EnemyPosition[initial_position]
 	add_child(enemy)
+
+
+func _on_PlayerCar_dead():
+	print("THE END")

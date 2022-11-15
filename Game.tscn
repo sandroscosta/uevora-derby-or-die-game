@@ -25,4 +25,5 @@ position = Vector2( 770, 362 )
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[connection signal="dead" from="PlayerCar" to="." method="_on_PlayerCar_dead"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
