@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export var health:= 10.0
-export var damage:= 1.0
+export var health:= 25.0
+export var damage:= 3.0
 
-var speed:= 120.0
+var speed:= 50.0
 var velocity:= Vector2.ZERO
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
