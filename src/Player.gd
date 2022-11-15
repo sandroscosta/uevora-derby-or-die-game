@@ -17,6 +17,8 @@ var drag = -0.0015
 var braking = -450
 var max_speed_reverse = 250
 
+onready var ui = get_node("/root/Game/UI")
+
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -32,6 +34,7 @@ func _physics_process(delta):
 			if body.is_in_group("enemy"):
 				if health != 0:
 					health -= body.damage
+				ui.update_health(health)
 				print("BOOM ", health)
 
 func apply_friction():
