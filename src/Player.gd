@@ -30,7 +30,9 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			var body = collision.collider
 			if body.is_in_group("enemy"):
-				print("BOOM ", body.name)
+				if health != 0:
+					health -= body.damage
+				print("BOOM ", health)
 
 func apply_friction():
 	if velocity.length() < 5:
