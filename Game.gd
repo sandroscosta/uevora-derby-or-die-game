@@ -1,6 +1,5 @@
 extends Node2D
 
-var endgame = false
 enum EnemyType {CONE, HIDRANT, LIGHTS}
 
 # Have 4 standard postions for the enemies to spawn on.
@@ -16,8 +15,12 @@ var enemy_lights = preload ("res://src/EnemySignal.tscn")
 var enemy_hidrant = preload ("res://src/EnemyHidrant.tscn")
 
 onready var timer = get_node("EnemySpawnTimer")
+onready var endgame_ui = preload ("res://src/EndGameScreen.tscn")
+
+var endgame
 
 func _ready():
+	endgame = endgame_ui.instance()
 	timer.start()
 
 func _on_EnemySpawnTimer_timeout():
@@ -40,4 +43,5 @@ func _on_EnemySpawnTimer_timeout():
 
 
 func _on_PlayerCar_dead():
-	print("THE END")
+	get_tree().paused = true
+	add_child(endgame)
