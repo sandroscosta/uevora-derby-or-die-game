@@ -40,6 +40,9 @@ func check_hits():
 				if health != 0:
 					health -= body.damage
 				ui.update_health(health)
+	# you lose health if stationary
+	if acceleration == Vector2.ZERO:
+		health -= 0.05
 
 func apply_friction():
 	if velocity.length() < 5:
@@ -76,5 +79,5 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 	
 func check_death():
-	if health == 0:
+	if health <= 0:
 		emit_signal("dead")

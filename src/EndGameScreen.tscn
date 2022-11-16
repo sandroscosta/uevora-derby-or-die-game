@@ -46,4 +46,11 @@ margin_right = 558.0
 margin_bottom = 398.0
 text = "Start over"
 
+[node name="TimeSurvived" type="Label" parent="."]
+margin_left = 433.0
+margin_top = 486.0
+margin_right = 589.0
+margin_bottom = 500.0
+text = "You survived for: "
+
 [connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]

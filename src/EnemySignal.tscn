@@ -4,7 +4,7 @@
 [ext_resource path="res://src/EnemySignal.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 32 )
+extents = Vector2( 6, 33 )
 
 [node name="EnemyLights" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
