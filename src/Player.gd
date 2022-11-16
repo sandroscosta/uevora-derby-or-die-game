@@ -29,7 +29,9 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 	check_death()
+	check_hits()
 	
+func check_hits():
 	if get_slide_count() > 0 :
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
@@ -38,7 +40,6 @@ func _physics_process(delta):
 				if health != 0:
 					health -= body.damage
 				ui.update_health(health)
-				print("BOOM ", health)
 
 func apply_friction():
 	if velocity.length() < 5:
