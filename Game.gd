@@ -1,6 +1,9 @@
 extends Node2D
 
 enum EnemyType {CONE, HIDRANT, LIGHTS}
+enum GameStateType {RUNNING, STOPPED}
+
+var gamestate = GameStateType.RUNNING
 
 # Have 4 standard postions for the enemies to spawn on.
 var EnemyPosition = [
@@ -41,7 +44,15 @@ func _on_EnemySpawnTimer_timeout():
 	add_child(enemy)
 
 
-
 func _on_PlayerCar_dead():
-	get_tree().paused = true
+	var player = get_tree().get_nodes_in_group("player")[0]
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	timer.stop()
+	
+	for enemy in enemies:
+		enemy.set_physics_process(false)
+	
+	player.set_physics_process(false)
 	add_child(endgame)
+	

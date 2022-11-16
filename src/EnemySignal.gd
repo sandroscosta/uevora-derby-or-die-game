@@ -13,3 +13,9 @@ func _physics_process(_delta):
 	
 	velocity = direction * speed
 	move_and_slide(velocity)
+
+func disable():
+	self.set_physics_process(false)
+
+func enable():
+	self.set_physics_process(true)
